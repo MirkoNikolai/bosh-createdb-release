@@ -1,0 +1,16 @@
+---
+name: crate
+
+templates: 
+  crate_ctl.erb: bin/crate_ctl
+  crate.yml.erb: config/create.yml
+  log4j2.properties.erb: config/log4j2.properties
+
+packages: 
+- openjre-11
+- crate
+
+properties: 
+  create.webport:
+    description: allow-from	If set, only allow these comma separated netmasks to recurse example allow-from=127.0.0.0/8, 10.0.0.0/8
+    default: 0.0.0.0

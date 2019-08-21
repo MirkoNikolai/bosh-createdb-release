@@ -1,0 +1,8 @@
+---
+name: crate
+
+dependencies:
+- openjre-11
+
+files:
+  - cratedb/crate-4.0.3.tar.gz 

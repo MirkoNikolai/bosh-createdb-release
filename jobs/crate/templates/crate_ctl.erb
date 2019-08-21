@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -eu
+
+RUN_DIR=/var/vcap/sys/run/crate
+LOG_DIR=/var/vcap/sys/log/crate
+TMP_DIR=/var/vcap/sys/tmp/crate
+STORE_DIR=/var/vcap/store/crate
+mkdir -p ${RUN_DIR} ${LOG_DIR} ${TMP_DIR} ${STORE_DIR}
+
+PIDFILE=${RUN_DIR}/crate.pid
+
+source /var/vcap/packages/openjre-8/bosh/runtime.env # get jre
+
+case $1 in
+  start)
+    #pid_guard ${PIDFILE} "crate"
+    ulimit -n 65536
+    CRATE_INCLUDE=/var/vcap/packages/crate/bin/crate.in.sh
+    exec /var/vcap/packages/crate/bin/crate -p $PIDFILE -C path.config=/var/vcap/jobs/crate/config 
+    ;; 
+  stop)
+    kill_and_wait ${PIDFILE}
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+  ;;
+
+esac
+exit 0

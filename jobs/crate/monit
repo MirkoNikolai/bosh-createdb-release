@@ -1,0 +1,5 @@
+check process crate
+  with pidfile /var/vcap/sys/run/crate.pid
+  start program "/var/vcap/jobs/crate/bin/crate_ctl start"
+  stop program "/var/vcap/jobs/crate/bin/crate_ctl stop"
+  group vcap
