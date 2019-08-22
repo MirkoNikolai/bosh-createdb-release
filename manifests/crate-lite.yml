@@ -12,6 +12,24 @@ stemcells:
 
 instance_groups:
 - name: crate 
+  provides:
+    peers: {as: crate} 
+  vm_extensions:
+  - all_ports
+  - crate
+  instances: 3
+  azs: [ z1 ]
+  vm_type: default
+  persistent_disk_type: default
+  stemcell: ubuntu
+  networks:
+  - name: default
+  jobs:
+  - name: crate 
+    release: cratedb
+- name: crate_adapter
+  #consumes:
+  #  peers: {from: crate}
   vm_extensions: 
   - all_ports
   instances: 1
@@ -22,7 +40,7 @@ instance_groups:
   networks:
   - name: default
   jobs:
-  - name: crate 
+  - name: crate_adapter 
     release: cratedb
 
 update:

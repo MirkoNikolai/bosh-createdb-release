@@ -1,0 +1,5 @@
+set -e
+
+mkdir -p $BOSH_INSTALL_TARGET/bin
+tar xf crate_adapter/crate_adapter-*.tar.gz -C $BOSH_INSTALL_TARGET/bin
+chmod +x $BOSH_INSTALL_TARGET/bin/crate_adapter

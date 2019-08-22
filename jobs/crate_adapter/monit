@@ -1,0 +1,5 @@
+check process crate_adapter
+  with pidfile /var/vcap/sys/run/crate_adapter.pid
+  start program "/var/vcap/jobs/crate_adapter/bin/monit_debugger crate_adapter_ctl '/var/vcap/jobs/crate_adapter/bin/ctl start'"
+  stop program "/var/vcap/jobs/crate_adapter/bin/monit_debugger crate_adapter_ctl '/var/vcap/jobs/crate_adapter/bin/ctl stop'"
+  group vcap

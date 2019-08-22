@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Setup env vars and folders for the webapp_ctl script
+# source /var/vcap/jobs/crate/helpers/ctl_setup.sh 'crate'
+
+sysctl -w vm.max_map_count=262144 
+
+export PORT=${PORT:-5000}
+export LANG=en_US.UTF-8
+export LOG_DIR=/var/vcap/sys/log/crate
+export PIDFILE=/var/vcap/sys/run/crate.pid 
+export DATA_DIR=/var/vcap/store/crate 
+export CRATE_HEAP_SIZE=1G ## needs variable
+
+mkdir -p $DATA_DIR
+chown vcap:vcap $DATA_DIR
+chown vcap:vcap $LOG_DIR
+chown vcap:vcap /var/vcap/packages/crate/logs 
+
+source /var/vcap/packages/openjre-11/bosh/runtime.env 
+
+case $1 in
+
+  start)
+    # pid_guard $PIDFILE $JOB_NAME
+
+    # store pid in $PIDFILE
+    # echo $$ > $PIDFILE
+
+	exec chpst -u vcap:vcap  /var/vcap/packages/crate/bin/crate -C path.conf=/var/vcap/jobs/crate/config/ -p $PIDFILE 
+                >>$LOG_DIR/$JOB_NAME.log 2>&1
+    ;;
+
+  stop)
+    while kill  $(cat $PIDFILE); do
+      sleep 5
+    done
+    rm $PIDFILE
+
+    ;;
+  *)
+    echo "Usage: crate_ctl {start|stop}"
+
+    ;;
+
+esac
+exit 0

@@ -1,0 +1,39 @@
+---
+name: crate_adapter
+packages:
+- crate_adapter
+
+#consumes:
+#- name: peers
+#  type: crate_peers
+
+templates:
+  bin/ctl: bin/ctl
+  bin/monit_debugger: bin/monit_debugger
+  config/crate_adapter.yml.erb: config/crate_adapter.yml
+  
+#properties:
+#  crate_adapter.dbuser:
+#    description: "Username to use (default: "crate")"
+#    default: "crate"
+#  crate_adapter.dbpasswd:
+#    description: "Password for dbuser"
+#    default: "mypass"
+#  crate_adapter.dbhost:
+#    description: "Host to connect to (default: "localhost")"
+#    default: "localhost"
+#  crate_adapter.dbport:
+#    description: "Port to connect to (default: 5432)"
+#    default: 5432
+#  crate_adapter.dbschema:
+#    description: Schema to use 
+#    default: "prometheus"
+#  crate_adapter.max_connections:
+#    description: "The maximum number of concurrent connections"
+#    default: "prometheus"
+#  crate_adapter.enable_tls:
+#    description: "Whether to connect using TLS"
+#    default: false
+#  crate_adapter.allow_insecure_tls:
+#    description: "Whether to allow insecure / invalid TLS certificates"
+#    default: false

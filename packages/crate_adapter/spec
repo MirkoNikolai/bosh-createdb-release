@@ -1,0 +1,7 @@
+---
+name: crate_adapter
+
+dependencies:
+
+files:
+  - crate_adapter/crate_adapter*.tar.gz 

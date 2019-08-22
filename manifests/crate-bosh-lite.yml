@@ -1,0 +1,43 @@
+---
+name: cratedb 
+
+releases:
+ - name: cratedb
+   version: latest
+
+update:
+  canaries: 0
+  canary_watch_time: 30000-240000
+  update_watch_time:  30000-240000
+  max_in_flight: 32
+  serial: false
+
+stemcells:
+- alias: ubuntu
+  os: ubuntu-xenial
+  version: latest
+
+instance_groups:
+- name: crate
+  vm_extensions:
+  - all_ports
+  instances: 2
+  azs: [ z1 ]
+  vm_type: default
+  persistent_disk: 2048
+  networks:
+  - name: default
+    static_ips:
+    - 172.16.1.101
+    - 172.16.1.106
+  jobs:
+  - name: crate
+    release: cratedb
+  stemcell: ubuntu
+
+properties:
+  crate:
+    master_nodes:
+    - 172.16.1.101 
+    - 172.16.1.106
+
