@@ -28,8 +28,8 @@ instance_groups:
   - name: crate 
     release: cratedb
 - name: crate_adapter
-  #consumes:
-  #  peers: {from: crate}
+  consumes:
+    peers: {from: crate}
   vm_extensions: 
   - all_ports
   instances: 1
@@ -42,7 +42,9 @@ instance_groups:
   jobs:
   - name: crate_adapter 
     release: cratedb
-
+  properties:
+    crate_adapter:
+      dbhost: "172.16.1.13"
 update:
   canaries: 1
   max_in_flight: 10
