@@ -15,3 +15,4 @@ releases/**/*.tgz
 tmp/
 ci-old
 src/**/*.tar.gz
+src/terminator.desktop
