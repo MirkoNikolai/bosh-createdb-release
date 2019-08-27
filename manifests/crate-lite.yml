@@ -46,7 +46,7 @@ instance_groups:
     release: cratedb
   properties:
     crate_adapter:
-      dbhost: "172.16.1.13"
+      dbport: "5432"
 update:
   canaries: 1
   max_in_flight: 10
