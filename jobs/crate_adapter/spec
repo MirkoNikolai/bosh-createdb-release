@@ -9,6 +9,10 @@ templates:
 packages:
 - crate_adapter
   
+consumes:
+- name: peers
+  type: cratedb
+
 properties:
   crate_adapter.dbuser:
     description: "Username to use default: crate"
@@ -16,9 +20,9 @@ properties:
   crate_adapter.dbpasswd:
     description: Password for dbuser
     default: mypass
-  crate_adapter.dbhost:
-    description: Host to connect to default localhost
-    default: "localhost"
+ # crate_adapter.dbhost:
+ #   description: Host to connect to default localhost
+ #   default: "localhost"
   crate_adapter.dbport:
     description: "Port to connect to default 5432"
     default: 5432

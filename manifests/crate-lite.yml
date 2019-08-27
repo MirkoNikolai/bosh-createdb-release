@@ -13,7 +13,9 @@ stemcells:
 instance_groups:
 - name: crate 
   provides:
-    peers: {as: crate} 
+    peers: {as: crate}
+  consumes:
+    peers: {from: crate} 
   vm_extensions:
   - all_ports
   - crate

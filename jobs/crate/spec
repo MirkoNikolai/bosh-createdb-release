@@ -4,14 +4,13 @@ packages:
 - openjre-11
 - crate
 
+provides:  
+- name: peers
+  type: cratedb
 consumes:
 - name: peers
-  type: crate_peers
-  
-provides:
-- name: peers
-  type: crate_peers
- 
+  type: cratedb
+
 templates:
   bin/ctl: bin/ctl
   bin/monit_debugger: bin/monit_debugger
