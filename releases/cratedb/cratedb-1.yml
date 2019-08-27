@@ -1,0 +1,35 @@
+name: cratedb
+version: "1"
+commit_hash: fc63578
+uncommitted_changes: false
+jobs:
+- name: crate
+  version: cfedac4cdae443c9b7bd8e3eecea31bbcd6ffe18b849f76594d78e16e7b18c02
+  fingerprint: cfedac4cdae443c9b7bd8e3eecea31bbcd6ffe18b849f76594d78e16e7b18c02
+  sha1: sha256:5ed5c478b0850ab9379c159b08416128a5232b2644bffae4a49e5e5f6a05b463
+  packages:
+  - openjre-11
+  - crate
+- name: crate_adapter
+  version: 015e677aa54f4e32e0cfd8ee28e3a60c38006cf104fb81d0e343b75d9a02ea2d
+  fingerprint: 015e677aa54f4e32e0cfd8ee28e3a60c38006cf104fb81d0e343b75d9a02ea2d
+  sha1: sha256:2425803675dbae036bb0f6da95a68903d8e3a0dcdf2b980c01fb82eda3e6616d
+  packages:
+  - crate_adapter
+packages:
+- name: crate
+  version: aaf0d21f47f4606e9b3b3ff29ec4a5719195eb1ce6b91e9613dd9d0fd06eeaf9
+  fingerprint: aaf0d21f47f4606e9b3b3ff29ec4a5719195eb1ce6b91e9613dd9d0fd06eeaf9
+  sha1: sha256:f75137da621af48f87a3a6d4ef7c7d846b04d98c4bebb38fe82468af6d31bf27
+  dependencies:
+  - openjre-11
+- name: crate_adapter
+  version: 051ab990db8e3b5606c097e08a143ce0c4cee2bff0952ab5fe72c132f509d455
+  fingerprint: 051ab990db8e3b5606c097e08a143ce0c4cee2bff0952ab5fe72c132f509d455
+  sha1: sha256:cff694335a63c395dd0d27125b194971035beae582d60ce51d907452947abc44
+  dependencies: []
+- name: openjre-11
+  version: 96130595d54a9be3990d2c19b42f54413a9432aa52046f5d03c61e063a779f0e
+  fingerprint: 96130595d54a9be3990d2c19b42f54413a9432aa52046f5d03c61e063a779f0e
+  sha1: sha256:aa7b1d43ef6641997db4ffb446f151ed3c92362f3ce9de4746bfbc35c2ba58a4
+  dependencies: []
